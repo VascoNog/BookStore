@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BookStore.App.Data;
+using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using BookStore.App.Data;
-using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace BookStore.App.Pages.MyBooks;
 
 [Authorize] // Coloca-se isto para permitir o acesso apenas a utilizadores autenticados
 public class DeleteModel : PageModel
 {
-    private readonly BookStore.App.Data.BookDbContext _context;
+    private readonly BookRepository _bookRepository;
 
-    public DeleteModel(BookStore.App.Data.BookDbContext context)
+    public DeleteModel(BookRepository bookRepository)
     {
-        _context = context;
+        _bookRepository = bookRepository;
     }
 
     [BindProperty]
-    public Book Book { get; set; } = default!;
+    public Book Book { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -30,16 +27,8 @@ public class DeleteModel : PageModel
             return NotFound();
         }
 
-        var book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
-
-        if (book is not null)
-        {
-            Book = book;
-
-            return Page();
-        }
-
-        return NotFound();
+        Book = await _bookRepository.GetBookByIdAsync(id.Value);
+        return Book is null ? NotFound() : Page();
     }
 
     public async Task<IActionResult> OnPostAsync(int? id)
@@ -48,15 +37,9 @@ public class DeleteModel : PageModel
         {
             return NotFound();
         }
-
-        var book = await _context.Books.FindAsync(id);
-        if (book != null)
-        {
-            Book = book;
-            _context.Books.Remove(Book);
-            await _context.SaveChangesAsync();
-        }
-
+        Book = await _bookRepository.GetBookByIdAsync(id.Value);
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        Result result = await _bookRepository.TryDeleteBookAsync(Book, userId);
         return RedirectToPage("./Index");
     }
 }

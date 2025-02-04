@@ -64,6 +64,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Rented/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGVkXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Rented/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGVkXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Rented/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGVkXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Rented/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGVkXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Rented/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudGVkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

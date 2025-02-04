@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using FluentResults;
 
 namespace BookStore.App.Pages.MyBooks;
 
@@ -48,30 +49,11 @@ public class EditModel : PageModel
             return Page();
         }
 
-        //_context.Attach(Book).State = EntityState.Modified;
-
-        try
-        {
-            //await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!BookExists(Book.Id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
-
-        return RedirectToPage("./Index");
-    }
-
-    private bool BookExists(int id)
-    {
-        return true;
-        //return _context.Books.Any(e => e.Id == id);
+        Book.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        Result result = await _bookRepository.TrySaveEditionAsync(Book);
+        if (result.IsFailed)
+            return Page();
+        else
+            return RedirectToPage("./Index");
     }
 }

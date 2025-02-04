@@ -13,14 +13,13 @@ namespace BookStore.App.Pages.MyBooks;
 [Authorize] // Coloca-se isto para permitir o acesso apenas a utilizadores autenticados
 public class DetailsModel : PageModel
 {
-    private readonly BookStore.App.Data.BookDbContext _context;
+    private readonly BookRepository _bookRepository;
 
-    public DetailsModel(BookStore.App.Data.BookDbContext context)
+    public DetailsModel(BookRepository bookRepository)
     {
-        _context = context;
+       _bookRepository = bookRepository;
     }
-
-    public Book Book { get; set; } = default!;
+    public Book Book { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -28,16 +27,7 @@ public class DetailsModel : PageModel
         {
             return NotFound();
         }
-
-        var book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
-
-        if (book is not null)
-        {
-            Book = book;
-
-            return Page();
-        }
-
-        return NotFound();
+        Book = await _bookRepository.GetBookByIdAsync(id.Value);
+        return Book is null ? NotFound() : Page();
     }
 }
