@@ -40,6 +40,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/MyBooks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29rc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/MyBooks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29rc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/MyBooks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29rc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/MyBooks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29rc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/MyBooks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlCb29rc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ReStart_Pessoal/BookStore/BookStore.App/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

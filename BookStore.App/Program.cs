@@ -1,3 +1,4 @@
+using BookStore.App;
 using BookStore.App.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<BookDbContext>();
 builder.Services.AddRazorPages();
 
+// Configure dependency injection
+builder.Services.AddScoped<BookRepository>();
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -8,8 +8,6 @@ public class BookDbContext : IdentityDbContext
     public BookDbContext(DbContextOptions<BookDbContext> options) : base(options)
     {
     }
-
-
     public DbSet<Book> Books {  get; set; }
 }
 
